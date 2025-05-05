@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    .highlight {
+      color: yellowgreen;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="mainTitle">Original Title</h1>
+
+  <p class="description"> New Description 1</p>
+  <p class="description"> New Description 2</p>
+  <p class="description"> New Description 3</p>
+
+  <button type="button" id="fetchButton">Fetch Selected Values</button>
+
+  <script>
+    document.getElementById("fetchButton").addEventListener("click", function () {
+      // getElementById
+      const title = document.getElementById("mainTitle");
+      title.textContent = "Title changed using getElementById";
+      console.log("getElementById:", title.textContent);
+
+      // querySelector
+      const firstParagraph = document.querySelector(".description");
+      firstParagraph.style.color = "purple";
+      console.log("querySelector:", firstParagraph.textContent);
+
+      // querySelectorAll
+      const allDescriptions = document.querySelectorAll(".description");
+      allDescriptions.forEach(description => {
+    description.classList.add("highlight");
+    console.log("querySelectorAll:", description.textContent);
+});
+
+    });
+  </script>
+
+</body>
+</html>
