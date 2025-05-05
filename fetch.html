@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label><u>Radio Buttons</u> :</label><br><br>
+        <input type="radio" id="option1" name="option" value="option1">
+        <label for="option1">Option 1</label><br><br>
+
+        <input type="radio" id="optio2" name="option" value="option2">
+        <label for="optio2">Option 2</label><br><br>
+
+        <input type="radio" id="option3" name="option" value="option3">
+        <label for="option3">Option 3</label><br><br>
+
+        <label><u>CheckBoxes</u> :</label><br><br>
+        <input type="checkbox" id="checkbox1" name="checkbox" value="checkbox1">
+        <label for="checkbox1">CheckBox 1</label><br><br>
+
+        <input type="checkbox" id="checkbox2" name="checkbox" value="checkbox2">
+        <label for="checkbox2">CheckBox 2</label><br><br>
+
+        <input type="checkbox" id="checkbox3" name="checkbox" value="checkbox3">
+        <label for="checkbox3">CheckBox 3</label><br><br>
+
+        <button type="button" id="fetchButton">Fetch Selected Values</button>
+    </form>
+       
+    <p id="selectedValues"></p>
+
+    <script>
+        document.getElementById("fetchButton").addEventListener("click", function() {
+
+            
+            let selectedRadio = document.querySelector('input[name="option"]:checked');
+            let radioValue = selectedRadio ? selectedRadio.value : "No option selected";
+
+
+            let checkboxes = document.querySelectorAll('input[name="checkbox"]');
+            let checkboxValues = [];
+              for (let i = 0; i < checkboxes.length; i++) {
+              if (checkboxes[i].checked) {
+             checkboxValues.push(checkboxes[i].value);
+               }
+            }
+            //Selected Values
+            let selectedValues = document.getElementById("selectedValues");
+           selectedValues.innerHTML = "Selected Radio Option: " + radioValue + "<br> Selected Checkboxes: " + checkboxValues.join(", ");
+        });
+    </script> 
+
+</body>
+</html>
